@@ -1,0 +1,35 @@
+<nav>
+    <ul>
+      <li>
+        <a routerLink=""  [class.activated]="currentUrl == '/'">
+          <i class="material-icons">supervised_user_circle</i>
+        </a>
+      </li>
+      <li>
+          <a routerLink="posts" [class.activated]="currentUrl == '/posts'">
+            <i class="material-icons">description</i>
+          </a>
+        </li>
+        <li>
+          <a routerLink="message"  [class.activated]="currentUrl == '/message'">
+            <i class="material-icons">chat</i>
+          </a>
+        </li>
+        <li>
+          <a routerLink="crud"  [class.activated]="currentUrl == '/crud'">
+            <i class="material-icons">home</i>
+          </a>
+        </li>
+        <li>
+          <a routerLink="GridJogging"  [class.activated]="currentUrl == '/GridJogging'">
+            <i class="material-icons">dashboard</i>
+          </a>
+        </li>
+        <li>
+          <a routerLink="AddOrUpdateJogging"  [class.activated]="currentUrl == '/AddOrUpdateJogging'">
+            <i class="material-icons">date_range</i>
+            <!-- code card_travel-->
+          </a>
+        </li>
+    </ul>
+  </nav>

@@ -1,0 +1,30 @@
+<!-- upload button  -->
+<button mat-flat-button color ="primarry" type="button" (click)="OpenFolder()" style="margin-left: 5%;">
+    <input type="file" id="fileup" name="fileup">
+Upload Files</button><br><br>
+    
+<!-- Apply filter -->
+<input type="text" #Myinput  (input)="Search()" class="form-control" style="margin-left: 5%;">{{Name}}
+<br><br>
+
+<!-- dataTable -->
+<div class="mat-elavation-z8">
+    <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Path</th>
+            <th>Catagory</th> 
+            <th></th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let o of files">
+            <td >{{o.fileID}}</td>
+            <td>{{o.fileName}}</td>
+            <td>{{o.filePath}}</td>
+            <td>{{o.Catagory}}</td>
+            <td><button class="btn btn-primary" (click)="onEdit()">Edit</button></td>
+            <td><button class="btn btn-danger" (click)="onDelete()">Delete</button></td>
+        </tr>
+    </table>
+</div>
