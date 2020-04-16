@@ -7,8 +7,9 @@ import { PostsComponent } from './posts/posts.component';
 import { DetailsComponent } from './details/details.component';
 import { MessageComponent } from './message/message.component';
 import { CrudComponent } from './Crud2/crud/crud.component';
-import { GridJoggingComponent } from './Crud2/grid-jogging/grid-jogging.component';
-import { AddOrUpdateJoggingComponent } from './Crud2/add-or-update-jogging/add-or-update-jogging.component';
+import { ContactlistComponent } from './Crud2/contactlist/contactlist.component';
+import { ContactformComponent } from './Crud2/contactform/contactform.component';
+// import { OktaCallbackComponent } from '@okta/okta-angular';
 
 
 const routes: Routes = [
@@ -19,8 +20,9 @@ const routes: Routes = [
   {path: 'details/:id', component: DetailsComponent},
   {path: 'message', component: MessageComponent},
   {path: 'crud', component: CrudComponent},
-  {path: 'GridJogging', component: GridJoggingComponent},
-  {path: 'AddOrUpdateJogging', component: AddOrUpdateJoggingComponent}
+  {path: 'contactlist', component: ContactlistComponent},
+  {path: 'contactform', component: ContactformComponent},
+  // { path: 'implicit/callback', component: OktaCallbackComponent }
 ];
 
 @NgModule({

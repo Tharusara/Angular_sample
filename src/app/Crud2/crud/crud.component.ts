@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import * as _ from 'lodash';
+// import { OktaAuthService } from '@okta/okta-angular';
 
 @Component({
   selector: 'app-crud',
@@ -10,10 +11,22 @@ import * as _ from 'lodash';
 export class CrudComponent implements OnInit {
   public joggingData: Array<any>;
   public currentJogging: any;
+  // public isAuthenticated: boolean;
 
-  constructor(private workoutService: DataService) {
-    workoutService.get().subscribe((data: any) => this.joggingData = data);
-    this.currentJogging = this.setInitialValuesForJoggingData();
+  constructor( private workoutService: DataService) {
+    // public oktaAuth: OktaAuthService,
+        // // get authentication state for immediate use
+        // this.oktaAuth.isAuthenticated().then(result => {
+        //   this.isAuthenticated = result;
+        // });
+
+        // // subscribe to authentication state changes
+        // this.oktaAuth.$authenticationState.subscribe(
+        //   (isAuthenticated: boolean)  => this.isAuthenticated = isAuthenticated
+        // );
+
+        workoutService.get().subscribe((data: any) => this.joggingData = data);
+        this.currentJogging = this.setInitialValuesForJoggingData();
   }
 
   ngOnInit(): void {
@@ -52,7 +65,7 @@ export class CrudComponent implements OnInit {
   };
 
   public newClicked = function() {
-    this.currentJogging = this.setInitialValuesForJoggingData(); 
+    this.currentJogging = this.setInitialValuesForJoggingData();
   };
 
   public deleteClicked(record) {
