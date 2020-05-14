@@ -1,12 +1,43 @@
 <header>
-    <div class="container">
-        <a class="logo" routerLink="/"><i class="material-icons">home</i>{{appTitle}}</a>
+    <div class="container" >
+        <a class="logo" routerLink="/" style="font-size:large;"><i class="material-icons">home</i>{{appTitle}}</a>
         <nav>
             <ul>
                 <li><a routerLink="/">Home</a></li>
                 <li><a routerLink="/about">About</a></li>
                 <li><a routerLink="/contact">Contact Us</a></li>
+                <!-- <li><a (click)="logout()">Logout</a></li> -->
             </ul>
         </nav>
     </div>
 </header>
+<div>
+      <nav mat-tab-nav-bar>
+        <a mat-tab-link
+           routerLink="/people"
+           routerLinkActive #rla="routerLinkActive"
+           [active]="rla.isActive">
+           People
+        </a>
+        <a mat-tab-link
+           routerLink="/contactlist"
+           routerLinkActive #bbb="routerLinkActive"
+           [active]="bbb.isActive">
+           Contact
+        </a>
+        <a mat-tab-link
+           routerLink="/crud"
+           routerLinkActive #ccc="routerLinkActive"
+           [active]="ccc.isActive">
+           Jogging
+        </a>
+        <a mat-align-tabs="end">
+            <mat-tab-group>
+                <mat-tab label="Module1"><a routerLink="/people">People</a></mat-tab>
+                <mat-tab label="Module2"><a routerLink="/contactlist">Contact</a></mat-tab>
+                <mat-tab label="Module3"><a routerLink="/crud">Jogging</a></mat-tab>
+                <mat-tab label="Logout" mat-align-tab="end"><a routerLink="/details">Logout</a></mat-tab>
+              </mat-tab-group>
+        </a>
+      </nav>
+</div>

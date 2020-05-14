@@ -10,6 +10,7 @@ export class GridJoggingComponent implements OnInit {
   @Output() newClicked = new EventEmitter<any>();
   @Output() editClicked = new EventEmitter<any>();
   @Input() joggingData: Array<any>;
+  // loading : boolean;
   constructor() { }
 
   ngOnInit(): void {

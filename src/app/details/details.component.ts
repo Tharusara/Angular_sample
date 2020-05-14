@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { User } from '../Models/user';
+import { UserService } from '../_services/user.service';
+import { first } from 'rxjs/operators';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
   selector: 'app-details',
@@ -8,15 +12,27 @@ import { DataService } from '../data.service';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-  user$: Object;
+  loading = false;
+  users: User[];
+  currentUser: User;
 
-  constructor(private route: ActivatedRoute, private data: DataService) {
-     this.route.params.subscribe( params => this.user$ = params.id );
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private authenticationService: AuthenticationService) {
+      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   ngOnInit() {
-    this.data.getUser(this.user$).subscribe(
-      data => this.user$ = data
-    );
+    this.loading = true;
+    this.userService.getAll().pipe(first()).subscribe(users => {
+            this.loading = false;
+            this.users = users;
+        });
   }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
+}
 }

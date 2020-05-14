@@ -1,7 +1,7 @@
 <div class="row columns">
   <p>chat work in progress</p>
-    <!-- <button (click)="login()" *ngIf="!name">Login With Facebook</button>
-  
+    <!-- <button (click)="login()" *ngIf="!name">Login With Facebook</button> -->
+<!--   
     <input type="text" id="message" *ngIf="name" placeholder="Chat here..." (keyup.enter)="chatSend($event.target.value)"  [(ngModel)]="msgVal" />
   
       <div class="chat-container" *ngFor="let item of items | async">
@@ -9,4 +9,37 @@
         
         <p>{{item.message}}</p>
       </div> -->
+  </div>
+  <div>
+    <footer class="footer">
+      <div class="container-fluid">
+          <nav>
+              <ul>
+                  <li>
+                      <a href="#">
+                          Home
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          Company
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          Portfolio
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          Blog
+                      </a>
+                  </li>
+              </ul>
+          </nav>
+          <p class="copyright pull-right">
+              &copy; {{test | date: 'yyyy'}} <a routerLink="/details">Creative Tharusara</a>, made with love for a better web
+          </p>
+      </div>
+  </footer>
   </div>

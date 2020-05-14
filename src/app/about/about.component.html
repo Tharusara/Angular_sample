@@ -1,10 +1,11 @@
 <!-- upload button  -->
-<button mat-flat-button color ="primarry" type="button" (click)="OpenFolder()" style="margin-left: 5%;">
+<button mat-flat-button color ="primarry" type="button" (click)="OpenFolder()" style="margin-left: 5%;" class="sizeing">
     <input type="file" id="fileup" name="fileup">
 Upload Files</button><br><br>
     
 <!-- Apply filter -->
-<input type="text" #Myinput  (input)="Search()" class="form-control" style="margin-left: 5%;">{{Name}}
+<p>{{Name}}</p>
+<input type="text" #Myinput  (input)="Search()" class="form-control" style="margin-left: 5%;"/>
 <br><br>
 
 <!-- dataTable -->

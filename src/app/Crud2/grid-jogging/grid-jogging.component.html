@@ -1,7 +1,11 @@
 <a href="#" id="new-button">New</a>
+<!-- <div *ngIf="loading" class="spinner-border spinner-border-sm"> -->
+    <!-- <div class="spinner" *ngIf="loading;">
+        <mat-spinner></mat-spinner> -->
 <table>
 <thead>
     <tr>
+        <!-- <th>ID</th> -->
         <th>Date</th>
         <th>Distance in meters</th>
         <th>Time</th>
@@ -11,14 +15,16 @@
 </thead>
 <tbody>
     <tr *ngFor="let joggingInfo of joggingData"> 
+        <!-- <td>{{joggingInfo.id}}</td> -->
         <td>{{ joggingInfo.date | date:'shortDate' }}</td>
         <td>{{ joggingInfo.distanceInMeters | number: '1.2-2' }}</td>
         <td>{{ joggingInfo.timeInSeconds / 60 | number: '1.0-0' }}:{{ joggingInfo.timeInSeconds % 60 |number: '2.0-0' }}</td>
         <td>{{ (joggingInfo.distanceInMeters / joggingInfo.timeInSeconds) * 3.6 | number:'1.2-2' }}</td>
         <td>
-            <a href="#" (click)="editRecord(this)">Edit</a>
-            <a href="#" (click)="deleteRecord(this)">Delete</a>
+            <button class="btn btn-primary"><a href="#" (click)="editRecord(this)" class="upd">Edit</a></button>
+            <button class="btn btn-danger"><a href="#" (click)="deleteRecord(this)" class="bin">Delete</a></button>
         </td>
     </tr>
 </tbody>
 </table>
+<!-- </div> -->

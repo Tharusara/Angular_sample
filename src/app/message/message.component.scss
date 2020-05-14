@@ -39,3 +39,25 @@ input#message {
     color:white;
     margin: 5px 0 10px 0;
 }
+
+footer{
+    justify-self: right;
+    // background: yellowgreen ;
+    ul{
+        list-style-type: none;
+        margin: 0;padding: 0;
+
+        li{
+            float: right;
+            font-size: xx-small;
+            a{
+                padding: 1.5em;
+                text-transform: uppercase;
+                font-size: .8em;
+                &:hover{
+                    background: #8E2BFF;
+                }
+            }
+        }
+    }
+}

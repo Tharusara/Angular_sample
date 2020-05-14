@@ -21,15 +21,26 @@ import { CrudComponent } from './Crud2/crud/crud.component';
 import { GridJoggingComponent } from './Crud2/grid-jogging/grid-jogging.component';
 import { AddOrUpdateJoggingComponent } from './Crud2/add-or-update-jogging/add-or-update-jogging.component';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { DecimalPipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
+import { DataService } from './data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { TestMatNavComponent } from './test-mat-nav/test-mat-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import {MatTabsModule} from '@angular/material/tabs';
 // import {  OktaAuthModule,  OktaCallbackComponent, OKTA_CONFIG} from '@okta/okta-angular';
 // import { AuthInterceptor } from './auth.interceptor';
 // import { AngularFirestoreModule } from '@angular/fire/firestore';
 // import { AngularFireStorageModule } from '@angular/fire/storage';
 // import { AngularFireAuthModule } from '@angular/fire/auth';
-import { DecimalPipe } from '@angular/common';
-import { DatePipe } from '@angular/common';
-import { DataService } from './data.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCUd3imXg9jOl4-18RTvnTsoOIkWnqScuc',
@@ -61,7 +72,9 @@ export const firebaseConfig = {
     MessageComponent,
     CrudComponent,
     GridJoggingComponent,
-    AddOrUpdateJoggingComponent
+    AddOrUpdateJoggingComponent,
+    LoginComponent,
+    TestMatNavComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +85,15 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
     CrudModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatTabsModule,
     // OktaAuthModule,
     // OktaCallbackComponent,
     // DecimalPipe,
@@ -79,10 +101,11 @@ export const firebaseConfig = {
     // AngularFirestoreModule, // firestore
     // AngularFireAuthModule, // auth
     // AngularFireStorageModule, // storage
-    RouterModule,
-    BrowserAnimationsModule,
+
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     // {provide: OKTA_CONFIG, useValue: config},
     // DataService,
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
