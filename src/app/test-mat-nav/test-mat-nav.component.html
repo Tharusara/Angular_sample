@@ -60,8 +60,45 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div style="height: 88vh;">
+    <!-- <div style="height: 88vh;">
       <ng-content></ng-content>
+    </div> -->
+    <div id="container">
+      <app-sidebar></app-sidebar>
+    
+      <div id="content">
+        <ng-content></ng-content>
+        <table class="table table-hover">
+          <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Path</th>
+              <th>Catagory</th> 
+          </tr>
+          <tr>
+            <td><button class="btn btn-primary">get</button></td>
+            <td><button class="btn btn-primary">post</button></td>
+            <td><button class="btn btn-danger">put</button></td>
+            <td><button class="btn btn-danger">delete</button></td>
+          </tr>
+          <tr>
+            <td><button class="btn btn-danger">get</button></td>
+            <td><button class="btn btn-danger">post</button></td>
+            <td><button class="btn btn-primary">put</button></td>
+            <td><button class="btn btn-primary">delete</button></td>
+          </tr>
+          <tr>
+            <td><button class="btn btn-Success">get</button></td>
+            <td><button class="btn btn-primary">post</button></td>
+            <td><button class="btn btn-Warning">put</button></td>
+            <td><button class="btn btn-danger">delete</button></td>
+          </tr>
+        </table>
+        <!-- <div><p><br></p></div> -->
+        <hr>
+        <hr>
+        <div><app-message></app-message></div>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

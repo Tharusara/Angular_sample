@@ -12,7 +12,23 @@
     </div>
 </header>
 <div>
+    <nav mat-tab-nav-bar mat-align-tabs="end" backgroundColor="primary">
+        <a mat-tab-link
+        routerLink="/details"
+        routerLinkActive #ccc2="routerLinkActive"
+        [active]="ccc2.isActive">
+        Logout
+     </a>
+      </nav>
       <nav mat-tab-nav-bar>
+        <a mat-align-tabs="start">
+            <mat-tab-group>
+                <mat-tab label="Module1"><a routerLink="/people">People</a></mat-tab>
+                <mat-tab label="Module2"><a routerLink="/contactlist">Contact</a></mat-tab>
+                <mat-tab label="Module3"><a routerLink="/crud">Jogging</a></mat-tab>
+                <!-- <mat-tab label="Logout" mat-align-tab="end"><a routerLink="/details">Logout</a></mat-tab> -->
+              </mat-tab-group>
+        </a>
         <a mat-tab-link
            routerLink="/people"
            routerLinkActive #rla="routerLinkActive"
@@ -30,14 +46,6 @@
            routerLinkActive #ccc="routerLinkActive"
            [active]="ccc.isActive">
            Jogging
-        </a>
-        <a mat-align-tabs="end">
-            <mat-tab-group>
-                <mat-tab label="Module1"><a routerLink="/people">People</a></mat-tab>
-                <mat-tab label="Module2"><a routerLink="/contactlist">Contact</a></mat-tab>
-                <mat-tab label="Module3"><a routerLink="/crud">Jogging</a></mat-tab>
-                <mat-tab label="Logout" mat-align-tab="end"><a routerLink="/details">Logout</a></mat-tab>
-              </mat-tab-group>
         </a>
       </nav>
 </div>
